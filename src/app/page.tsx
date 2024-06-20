@@ -8,6 +8,7 @@ import DehazeIcon from '@mui/icons-material/Dehaze';
 import VapingRoomsIcon from '@mui/icons-material/VapingRooms';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import UmbrellaIcon from '@mui/icons-material/Umbrella';
+import LandslideIcon from '@mui/icons-material/Landslide';
 
 let WEATHER_API_KEY = '42dd43bcd7257676dedf4eb4dc160670';
 
@@ -51,9 +52,7 @@ export default function Home() {
   // Call getWeatherData function when needed
 
 
-  useEffect(() => {
-    getWeatherData();
-  }, [place]);
+
 
   return (
     <div className={styles.outerdiv}>
@@ -70,6 +69,7 @@ export default function Home() {
               {placeData.weather[0].main === 'Smoke' && <VapingRoomsIcon className={styles.weathericon} />}
               {placeData.weather[0].main === 'Clear' && <WbSunnyIcon className={styles.weathericon} />}
               {placeData.weather[0].main === 'Rainy' && <UmbrellaIcon className={styles.weathericon} />}
+              {placeData.weather[0].main === 'Mist' && <LandslideIcon className={styles.weathericon} />}
 
               <p className={styles.temp}>{(placeData.main.temp - 273.15).toFixed(1)} <span>°C</span></p>
             </div>
